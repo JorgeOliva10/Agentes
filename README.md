@@ -18,21 +18,21 @@ Genera la estructura base de un proyecto MCP (Model Context Protocol) con docume
 ### Instalación rápida
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/YOUR_USER/agentes/main/install.sh | bash -s mcp-agent
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/agentes/main/install.sh | bash -s mcp-agent
 ```
 
 ### Instalación manual
 
 1. Descarga el mode:
 ```bash
-curl -sSL https://raw.githubusercontent.com/YOUR_USER/agentes/main/modes/mcp-agent.yaml \
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/agentes/main/modes/mcp-agent.yaml \
   -o ~/.config/opencode/modes/mcp-agent.yaml
 ```
 
 2. Descarga las rules:
 ```bash
-curl -sSL https://raw.githubusercontent.com/YOUR_USER/agentes/main/rules/mcp-server-skeleton.md \
-  -o ~/.config/opencode/rules/mcp-server-skeleton.md
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/agentes/main/rules/mcp01_project_structure.md \
+  -o ~/.config/opencode/rules/mcp01_project_structure.md
 ```
 
 ## 📖 Uso
