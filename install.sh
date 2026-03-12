@@ -5,19 +5,19 @@
 
 set -e
 
-AGENT_NAME="${1:-mcp-agent}"
+AGENT_NAME="${1:-mcp-scaffold}"
 REPO_URL="https://raw.githubusercontent.com/JorgeOliva10/Agentes/main"
 INSTALL_DIR="${HOME}/.config/opencode"
 
 echo "🚀 Installing agent: $AGENT_NAME"
 
 # Create directories if they don't exist
-mkdir -p "$INSTALL_DIR/modes"
+mkdir -p "$INSTALL_DIR/agent"
 mkdir -p "$INSTALL_DIR/rules"
 
-# Download mode file
-echo "📥 Downloading mode configuration..."
-curl -sSL "$REPO_URL/modes/$AGENT_NAME.yaml" -o "$INSTALL_DIR/modes/$AGENT_NAME.yaml"
+# Download agent file
+echo "📥 Downloading agent configuration..."
+curl -sSL "$REPO_URL/agent/$AGENT_NAME.md" -o "$INSTALL_DIR/agent/$AGENT_NAME.md"
 
 # Download rules
 echo "📥 Downloading rules..."

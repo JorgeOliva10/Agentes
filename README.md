@@ -24,10 +24,10 @@ irm https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/install.ps1 | ie
 
 **Instalación manual:**
 ```powershell
-# Descargar el mode
-$installDir = "$env:USERPROFILE\.config\opencode\modes"
+# Descargar el agente
+$installDir = "$env:USERPROFILE\.config\opencode\agent"
 New-Item -ItemType Directory -Force -Path $installDir | Out-Null
-Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/modes/mcp-agent.yaml' -OutFile "$installDir\mcp-agent.yaml"
+Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/agent/mcp-scaffold.md' -OutFile "$installDir\mcp-scaffold.md"
 
 # Descargar las rules
 $rulesDir = "$env:USERPROFILE\.config\opencode\rules"
@@ -42,15 +42,15 @@ foreach ($rule in $rules) {
 
 **Instalación rápida:**
 ```bash
-curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/install.sh | bash -s mcp-agent
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/install.sh | bash -s mcp-scaffold
 ```
 
 **Instalación manual:**
 ```bash
-# Descargar el mode
-mkdir -p ~/.config/opencode/modes
-curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/modes/mcp-agent.yaml \
-  -o ~/.config/opencode/modes/mcp-agent.yaml
+# Descargar el agente
+mkdir -p ~/.config/opencode/agent
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/agent/mcp-scaffold.md \
+  -o ~/.config/opencode/agent/mcp-scaffold.md
 
 # Descargar las rules
 mkdir -p ~/.config/opencode/rules
@@ -64,17 +64,23 @@ done
 
 1. Instala el agente usando el comando de instalación
 2. Reinicia tu IDE o recarga la configuración
-3. Activa el agente `mcp-scaffold` en tu IDE
-4. Comienza a crear proyectos MCP
+3. Lista los agentes disponibles: `opencode agent list`
+4. El agente `mcp-scaffold` estará disponible automáticamente
+5. Úsalo con: `opencode --agent mcp-scaffold`
 
 ## 🛠️ Estructura del repositorio
 
 ```
 agentes/
-├── modes/           # Configuraciones de agentes
-│   └── mcp-agent.yaml
-├── rules/           # Reglas y comportamientos
-│   └── mcp-server-skeleton.md
+├── agent/
+│   └── mcp-scaffold.md
+├── rules/
+│   ├── mcp01_project_structure.md
+│   ├── mcp02_docs_markdown.md
+│   ├── mcp03_required_files.md
+│   ├── mcp04_no_overwrite.md
+│   ├── mcp05_agent_placeholders.md
+│   └── mcp06_mcp_config.md
 ├── install.sh       # Script de instalación
 └── README.md
 ```
@@ -92,18 +98,13 @@ agentes/
 
 Estructura básica de un agente:
 
-```yaml
-name: mi-agente
-description: Descripción de lo que hace
-
-model: devstrall-small
-
-instructions: |
-  Instrucciones para el agente...
-
-tools:
-  - create_file
-  - read_file
+```markdown
+---
+description: >-
+  Descripción de lo que hace el agente
+mode: all
+---
+Instrucciones para el agente...
 ```
 
 ## 📄 Licencia
