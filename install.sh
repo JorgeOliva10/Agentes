@@ -6,7 +6,7 @@
 set -e
 
 AGENT_NAME="${1:-mcp-agent}"
-REPO_URL="https://raw.githubusercontent.com/JorgeOliva10/agentes/main"
+REPO_URL="https://raw.githubusercontent.com/JorgeOliva10/Agentes/main"
 INSTALL_DIR="${HOME}/.config/opencode"
 
 echo "🚀 Installing agent: $AGENT_NAME"
