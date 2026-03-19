@@ -64,13 +64,13 @@ agentes/
 ### Windows (PowerShell)
 
 ```powershell
-irm https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/scripts/install.ps1 | iex
 ```
 
 ### Linux / macOS (Bash)
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/JorgeOliva10/Agentes/main/scripts/install.sh | bash
 ```
 
 Los agentes se instalan en `~/.config/kilo/agent/` y las reglas en `~/.config/kilo/rules/`.
