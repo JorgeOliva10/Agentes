@@ -83,14 +83,12 @@ Una vez instalados los agentes, puedes usarlos directamente desde el chat de Kil
 
 ```
 Usa el agente mcp-completion-agent con sus respectivos subagentes y las reglas
-definidas en cada uno de ellos para completar el mcp server ubicado en
-C:\Users\JorgeOlivadelaCruz\Downloads\mcp-formatos
+definidas en cada uno de ellos para completar el mcp server mcp-formatos
 ```
 
 ```
 Usa el agente mcp-completion-agent con sus respectivos subagentes y las reglas
-definidas en cada uno de ellos para completar el mcp server ubicado en
-C:\Users\JorgeOlivadelaCruz\Downloads\mcp-weather-server
+definidas en cada uno de ellos para completar el mcp server mcp-weather-server
 ```
 
 ---
@@ -122,6 +120,8 @@ Subagents are located at:
 "~/.config/kilo/agent/subagent"
 ```
 
+4. Regístralo en `install.ps1` e `install.sh` (ver sección [Cómo actualizar los scripts de instalación](#-cómo-actualizar-los-scripts-de-instalación)).
+
 ---
 
 ## ✍️ Cómo añadir un subagente
@@ -146,6 +146,8 @@ Follow the rules defined at:
 
 3. Registra el subagente en el agente principal o en el `orchestrator_agent` para que pueda ser invocado.
 
+4. Regístralo en `install.ps1` e `install.sh` (ver sección [Cómo actualizar los scripts de instalación](#-cómo-actualizar-los-scripts-de-instalación)).
+
 ---
 
 ## ✍️ Cómo añadir una regla
@@ -163,7 +165,50 @@ Para añadir una regla:
 
 1. Crea un archivo `.md` en la carpeta correspondiente siguiendo la nomenclatura existente (ej. `completion11_nueva_regla.md`)
 2. Escribe la regla en lenguaje natural claro y directo
-3. Referencía la carpeta de reglas en el agente o subagente que deba seguirla
+3. Referencia la carpeta de reglas en el agente o subagente que deba seguirla
+4. Regístrala en `install.ps1` e `install.sh` (ver sección siguiente)
+
+---
+
+## 🔧 Cómo actualizar los scripts de instalación
+
+Cada vez que añadas un agente, subagente o regla, debes registrarlo en `install.ps1` e `install.sh` para que los usuarios puedan descargarlo.
+
+**Añadir un agente** → agrégalo al array `$Agents` en `install.ps1` y al bucle correspondiente en `install.sh`:
+
+```powershell
+# install.ps1
+$Agents = @("mcp-scaffold", "mcp-completion-agent", "tu-nuevo-agente")
+```
+
+```bash
+# install.sh
+for agent in mcp-scaffold mcp-completion-agent tu-nuevo-agente; do
+```
+
+**Añadir un subagente** → agrégalo al array `$Subagents` en `install.ps1` y al bucle correspondiente en `install.sh`:
+
+```powershell
+# install.ps1
+$Subagents = @(..., "tu_nuevo_subagente")
+```
+
+```bash
+# install.sh
+for subagent in ... tu_nuevo_subagente; do
+```
+
+**Añadir una regla** → agrégala al array de su carpeta en `install.ps1` (`$ScaffoldRules`, `$CompletionRules`, `$ReviewRules` o `$ValidatorRules`) y al bucle correspondiente en `install.sh`:
+
+```powershell
+# install.ps1
+$CompletionRules = @(..., "completion11_tu_nueva_regla.md")
+```
+
+```bash
+# install.sh
+for rule in ... completion11_tu_nueva_regla.md; do
+```
 
 ---
 
