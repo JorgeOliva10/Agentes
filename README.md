@@ -4,6 +4,8 @@ Este repositorio es un ejemplo de cómo organizar y reutilizar agentes de IA par
 
 Compatible con **Kilo** y **OpenCode**.
 
+> 👉 ¿Primera vez? Lee la guía [Getting Started](GETTING_STARTED.md) para crear tu primer MCP server desde cero.
+
 ---
 
 ## 📦 Agentes disponibles
